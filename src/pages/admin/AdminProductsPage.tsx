@@ -170,10 +170,13 @@ const AdminProductsPage = () => {
       );
       toast.success(`Product "${data.name}" updated successfully!`);
     } else {
-      // Add new product
+      // Add new product with required fields for Product type
       const newProduct: Product = {
         id: `product-${Date.now()}`,
-        ...data,
+        name: data.name,
+        price: data.price,
+        image: data.image,
+        description: data.description,
       };
       setProducts(currentProducts => [...currentProducts, newProduct]);
       toast.success(`Product "${data.name}" added successfully!`);
